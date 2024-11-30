@@ -1,0 +1,6 @@
+@Prompt.WebApi_HostAddress = http://localhost:5273
+
+GET {{Prompt.WebApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
