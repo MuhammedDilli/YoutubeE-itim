@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Prompt.Domain.Identity
 {
-    public sealed  class ApplicationRole :IdentityRole<long>
+    public sealed  class ApplicationRole :IdentityRole<Guid>
     {
 
     }

@@ -3,7 +3,7 @@
 
 namespace Prompt.Domain.Identity
 {
-    public sealed class ApplicationRoleClaim:IdentityRoleClaim<long>
+    public sealed class ApplicationRoleClaim:IdentityRoleClaim<Guid>
     {
 
     }

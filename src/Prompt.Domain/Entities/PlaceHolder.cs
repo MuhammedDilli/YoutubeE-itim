@@ -5,8 +5,8 @@ namespace Prompt.Domain.Entities
     {
         public string Name { get; set; }
         public string DisplayName { get; set; }
-        public long PromptId { get; set; }
-        public Prompt Prompt { get; set; }
+        public Guid PromptId { get; set; }
+        public Prompts Prompt { get; set; }
 
 
     }

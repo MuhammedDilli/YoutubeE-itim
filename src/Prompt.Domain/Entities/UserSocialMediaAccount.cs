@@ -13,7 +13,7 @@ namespace Prompt.Domain.Entities
     {
         public SocialMediaType SocialMediaType { get; set; }
         public string?  Url { get; set; }
-        public long UserId { get; set; }
+        public Guid UserId { get; set; }
         public ApplicationUser User { get; set; }
 
 

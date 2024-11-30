@@ -2,7 +2,7 @@
 
 namespace Prompt.Domain.Identity
 {
-    public sealed class ApplicationUserToken:IdentityUserToken<long>
+    public sealed class ApplicationUserToken:IdentityUserToken<Guid>
     {
 
     }

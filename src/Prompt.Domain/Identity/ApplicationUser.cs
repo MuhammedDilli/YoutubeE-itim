@@ -4,7 +4,7 @@ using Prompt.Domain.Entities;
 using Prompt.Domain.ValueObject;
 namespace Prompt.Domain.Identity
 {
-    public sealed class ApplicationUser : IdentityUser<long>, ICreatedByEntity, IModifiedByEntity
+    public sealed class ApplicationUser : IdentityUser<Guid>, ICreatedByEntity, IModifiedByEntity
     {
         public FullName FullName { get; set; }
         public string? CreatedByUserId { get; set; }

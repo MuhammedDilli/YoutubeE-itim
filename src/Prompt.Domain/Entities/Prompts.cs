@@ -1,7 +1,8 @@
 ﻿using Prompt.Domain.Common;
+
 namespace Prompt.Domain.Entities
 {
-    public sealed class Prompt :EntityBase
+    public sealed class Prompts : EntityBase
     {
         public string  Title { get; set; }
         public string Description { get; set; }
@@ -13,5 +14,6 @@ namespace Prompt.Domain.Entities
         public ICollection<UserFavoritePrompt> UserFavoritePrompts { get; set; } = [];
         public ICollection<UserLikePrompt> UserLikePrompts { get; set; } = [];
         public ICollection<PlaceHolder> PlaceHolders { get; set; } = [];
+       
     }
 }
