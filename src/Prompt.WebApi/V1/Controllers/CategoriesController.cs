@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Caching.Memory;
 using Prompt.Domain.Entities;
 using Prompt.Persistence.EntityFramework.Contexts;
+using Prompt.WebApi.Helpers;
+using Prompt.WebApi.Models;
 using Prompt.WebApi.V1.Categories.Queries.GetAll;
 using Prompt.WebApi.V1.Categories.Queries.GetById;
 using System.Linq;
@@ -76,7 +78,7 @@ namespace Prompt.WebApi.V1.Controllers
              _dbContext.Categories.Add(category);
             await _dbContext.SaveChangesAsync(cancellation);
             InvalidateCache();
-            return Ok(category);
+            return Ok(ResponseDto<long>.Success(MessageHelper.GetApiSuccessCreatedMessage("Kategori")));
         }
 
 
@@ -96,7 +98,7 @@ namespace Prompt.WebApi.V1.Controllers
             await _dbContext.SaveChangesAsync(cancellation);
             InvalidateCache(id);
 
-            return Ok(category);
+            return Ok(ResponseDto<long>.Success(MessageHelper.GetApiSuccessUpdatedMessage("Kategori")));
         }
         [HttpDelete("{id:long}")]
         public async Task<IActionResult> DeleteAsync(long id, CancellationToken cancellation)
@@ -112,7 +114,7 @@ namespace Prompt.WebApi.V1.Controllers
             _dbContext.Categories.Remove(category);
             await _dbContext.SaveChangesAsync(cancellation);
             InvalidateCache(id);
-            return NoContent();
+            return Ok(ResponseDto<long>.Success(MessageHelper.GetApiSuccessDeletedMessage("Kategori")));
         }
 
         private void InvalidateCache(long? categoryId = null)
