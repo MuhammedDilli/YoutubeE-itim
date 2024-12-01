@@ -16,9 +16,9 @@ namespace Prompt.Domain.Identity
 
 
 
-        public ICollection<UserSocialMediaAccount> UserSocialMediaAccount { get; set; } = [];
+        public ICollection<UserSocialMediaAccount> UserSocialMediaAccounts { get; set; } = [];
 
-        public ICollection<UserPromptComment> PromptComments { get; set; } = [];
+        public ICollection<UserPromptComment> UserPromptComments { get; set; } = [];
         public ICollection<UserFavoritePrompt> UserFavoritePrompts { get; set; } = [];
         public ICollection<UserLikePrompt> UserLikePrompts { get; set; } = [];
     }
