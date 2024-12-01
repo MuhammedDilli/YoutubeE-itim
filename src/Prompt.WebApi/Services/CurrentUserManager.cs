@@ -2,7 +2,7 @@
 
 namespace Prompt.WebApi.Services
 {
-    public class CurrentUserManager : ICurrentUserService
+    public sealed class CurrentUserManager : ICurrentUserService
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
 

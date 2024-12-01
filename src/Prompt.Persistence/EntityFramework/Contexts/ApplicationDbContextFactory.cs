@@ -10,23 +10,22 @@ using System.Threading.Tasks;
 
 namespace Prompt.Persistence.EntityFramework.Contexts
 {
-    public class ApplicationDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
+    public sealed class ApplicationDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
     {
         public ApplicationDbContext CreateDbContext(string[] args)
         {
             var configuration = new ConfigurationBuilder()
                 .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
-                
+                .AddJsonFile("appsettings.json")                
                 .Build();
 
-            var connectionString = configuration.GetConnectionString("DefaultConnection");
 
+            var connectionString = configuration.GetConnectionString("DefaultConnection");
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
 
             optionsBuilder.UseNpgsql(connectionString, b => b.MigrationsHistoryTable("__ef_migrations_history")).ConfigureWarnings(warnings => warnings.Throw(RelationalEventId.PendingModelChangesWarning));
-
             return new ApplicationDbContext(optionsBuilder.Options);
         }
     }
 }
+
